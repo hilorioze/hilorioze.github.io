@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yan Hilorioze</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #121212;
+      --bg-content: #1f1f1f;
+      --bg-link: #2c2c2c;
+      --bg-link-hover: #383838;
+      --color-text: #e0e0e0;
+      --color-link: #81d4fa;
+      --color-icon: #4fc3f7;
+      --color-divider: #424242;
+      --border-radius: 8px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--color-text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .content {
+      background-color: var(--bg-content);
+      padding: 2rem 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .header {
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #9e9e9e;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .subtitle i {
+      font-size: 0.9rem;
+      color: var(--color-icon);
+    }
+
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .item a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--bg-link);
+      padding: 0.75rem 0.8rem;
+      border-radius: var(--border-radius);
+      color: var(--color-link);
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .item i {
+      font-size: 1.2rem;
+      color: var(--color-icon);
+    }
+
+    .item a:hover {
+      background-color: var(--bg-link-hover);
+      color: #ffffff;
+    }
+
+    .item a:hover i {
+      color: #ffffff;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: var(--color-divider);
+      margin: 0.5rem 0;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .content {
+        animation: none;
+      }
+
+      .item a {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h2 class="header">Yan Hilorioze</h2>
+    <p class="subtitle">
+      <i class="fas fa-location-dot" aria-hidden="true"></i>
+      Ukraine
+    </p>
+    <div class="items">
+      <div class="item">
+        <a href="https://github.com/hilorioze" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github" aria-hidden="true"></i>
+          GitHub
+        </a>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="item">
+        <a href="https://t.me/hilorioze" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-telegram" aria-hidden="true"></i>
+          Telegram
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://matrix.to/#/@hilorioze:matrix.org" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-hashtag" aria-hidden="true"></i>
+          Matrix
+        </a>
+      </div>
+      <div class="item">
+        <a href="mailto:yan@hilorioze.com">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Email
+        </a>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="item">
+        <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/96715EFAA4FB67F96D3B335258DA93FDD2D02B8D" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-key" aria-hidden="true"></i>
+          PGP: 0xD2D02B8D
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
