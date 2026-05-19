@@ -31,10 +31,12 @@
       background-color: var(--bg-primary);
       color: var(--color-text);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
+      gap: 1.5rem;
     }
 
     .content {
@@ -45,6 +47,7 @@
       text-align: center;
       max-width: 350px;
       width: 100%;
+      position: relative;
       animation: fadeIn 0.5s ease;
     }
 
@@ -63,7 +66,6 @@
     }
 
     .subtitle i {
-      font-size: 0.9rem;
       color: var(--color-icon);
     }
 
@@ -107,6 +109,109 @@
       opacity: 0.7;
     }
 
+    .pages-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .pages-slider {
+      display: flex;
+      width: 200%;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .page {
+      width: 50%;
+      flex-shrink: 0;
+    }
+
+    .pages-slider {
+      transform: translateX(0);
+    }
+
+    .page-home {
+      visibility: visible;
+      transition: visibility 0s 0s;
+    }
+
+    .page-about {
+      visibility: hidden;
+      transition: visibility 0s 0.4s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-icon {
+      color: #424242;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text {
+      color: #757575;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    #about:target~.content .pages-wrapper .pages-slider {
+      transform: translateX(-50%);
+    }
+
+    #about:target~.content .pages-wrapper .page-home {
+      visibility: hidden;
+      transition: visibility 0s 0.4s;
+    }
+
+    #about:target~.content .pages-wrapper .page-about {
+      visibility: visible;
+      transition: visibility 0s 0s;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .footer a {
+      color: #757575;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--color-text);
+      text-decoration: underline;
+    }
+
+    .footer #link-home {
+      color: #9e9e9e;
+    }
+
+    #about:target~.footer #link-home {
+      color: #757575;
+    }
+
+    #about:target~.footer #link-about {
+      color: #9e9e9e;
+    }
+
+    .footer-divider {
+      color: #424242;
+      font-size: 0.8rem;
+      user-select: none;
+    }
+
+    .footer-divider::after {
+      content: "/";
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -119,7 +224,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .content {
+      .content, .footer {
         animation: none;
       }
 
@@ -129,51 +234,81 @@
     }
   </style>
 </head>
+
 <body>
+  <span id="home" style="position: absolute; top: 0;"></span>
+  <span id="about" style="position: absolute; top: 0;"></span>
+
   <div class="content">
-    <h2 class="header">hilorioze</h2>
-    <p class="subtitle">
-      <i class="fas fa-location-dot" aria-hidden="true"></i>
-      Ukraine
-    </p>
-    <div class="items">
-      <div class="item">
-        <a href="https://github.com/hilorioze" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github" aria-hidden="true"></i>
-          GitHub
-        </a>
-      </div>
+    <div class="pages-wrapper">
+      <div class="pages-slider">
+        <div class="page page-home">
+          <h2 class="header">hilorioze</h2>
+          <p class="subtitle">
+            <i class="fas fa-location-dot" aria-hidden="true"></i>
+            Ukraine
+          </p>
+          <div class="items">
+            <div class="item">
+              <a href="https://github.com/hilorioze" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                GitHub
+              </a>
+            </div>
 
-      <div class="divider" aria-hidden="true"></div>
+            <div class="divider" aria-hidden="true"></div>
 
-      <div class="item">
-        <a href="https://t.me/hilorioze" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-telegram" aria-hidden="true"></i>
-          Telegram
-        </a>
-      </div>
-      <div class="item">
-        <a href="https://matrix.to/#/@hilorioze:matrix.org" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-hashtag" aria-hidden="true"></i>
-          Matrix
-        </a>
-      </div>
-      <div class="item">
-        <a href="mailto:me@hilorioze.com">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-          Email
-        </a>
-      </div>
+            <div class="item">
+              <a href="https://t.me/hilorioze" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram" aria-hidden="true"></i>
+                Telegram
+              </a>
+            </div>
+            <div class="item">
+              <a href="https://matrix.to/#/@hilorioze:matrix.org" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-hashtag" aria-hidden="true"></i>
+                Matrix
+              </a>
+            </div>
+            <div class="item">
+              <a href="mailto:me@hilorioze.com">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                Email
+              </a>
+            </div>
 
-      <div class="divider" aria-hidden="true"></div>
+            <div class="divider" aria-hidden="true"></div>
 
-      <div class="item">
-        <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/96715EFAA4FB67F96D3B335258DA93FDD2D02B8D" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-key" aria-hidden="true"></i>
-          PGP: 0xD2D02B8D
-        </a>
+            <div class="item">
+              <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/96715EFAA4FB67F96D3B335258DA93FDD2D02B8D" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-key" aria-hidden="true"></i>
+                PGP: 0xD2D02B8D
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="page page-about">
+          <i class="fas fa-hourglass about-icon" aria-hidden="true"></i>
+          <div class="about-text">Coming Soon</div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="footer">
+    <a href="#home" id="link-home">Home</a>
+    <span class="footer-divider"></span>
+    <a href="#about" id="link-about">About</a>
+    <span class="footer-divider"></span>
+    <a href="https://status.hilorioze.com" target="_blank" rel="noopener noreferrer">Status</a>
+  </div>
+
+  <script>
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') window.location.hash = '#about';
+      if (event.key === 'ArrowLeft') window.location.hash = '#home';
+    });
+  </script>
 </body>
 </html>
